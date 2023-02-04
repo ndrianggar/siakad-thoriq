@@ -169,16 +169,16 @@
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <?php
                     // $datasantri = neangandata("Select * FROM siswa");
-                    $datauser = $pdo->prepare("SELECT * FROM user where level == $_GET['level']");
-                    $datauser->execute(); // Eksekusi querynya
+//                     $datauser = $pdo->prepare("SELECT * FROM user");
+//                     $datauser->execute(); // Eksekusi querynya
                     
 ?>      
  <?php
-  foreach ($datauser as $s) : ?>
-            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php var_dump($datauser) ?></span>
+//  foreach ($datauser as $s) : ?>
+            <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
             <img class="img-profile rounded-circle" src="../img/undraw_profile.svg">
             <?php
-         endforeach;?>
+        //  endforeach;?>
         </a>
         <!-- Dropdown - User Information -->
         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
