@@ -12,8 +12,8 @@ $(document).ready(function(){
     
     $("#submit").submit(function(e){ // Ketika tombol simpan di klik
       // Buat variabel data untuk menampung data hasil input dari form
-      e.preventDefault();
       alert("test");
+      e.preventDefault();
       var data = new FormData();
       data.append('nis', $("#nis").val()); 
       data.append('nisn', $("#nisn").val()); 

@@ -189,7 +189,7 @@ if ($_SESSION['status'] != "login") {
                         <div class="tab">
                             <p>
                                 <label><b>Nis :</b></label> &nbsp; &nbsp;
-                                <input type="number" id="nis" class="form-control" placeholder="Nis" name="nis">
+                                <input type="number" id="nis" class="form-control" placeholder="Nis" name="nis" required>
                             </p>
                             <p>
                                 <label><b>Nisn :</b></label> &nbsp; &nbsp;
@@ -416,11 +416,8 @@ if ($_SESSION['status'] != "login") {
     <script>
         var currentTab = 0; // Current tab is set to be the first tab (0)
         showTab(currentTab); // Display the current tab
-
         function showTab(n) {
-            let button = "<a type='button' onClick()='SendData()' id='submit'>Submit</a>";
-           
-            // This function will display the specified tab of the form...
+                    // This function will display the specified tab of the form...
             var x = document.getElementsByClassName("tab");
             x[n].style.display = "block";
             //... and fix the Previous/Next buttons:
@@ -430,23 +427,22 @@ if ($_SESSION['status'] != "login") {
                 document.getElementById("prevBtn").style.display = "inline";
             }
             if (n == (x.length - 1)) {
-                document.getElementById("nextBtn").innerHTML = button;
+                document.getElementById("nextBtn").innerHTML = "  <a type='button' id='submit'>Submit</a>";
                 
                
             } else {
                 document.getElementById("nextBtn").innerHTML = "Next";
             }
-
+        }
            
             //... and run a function that will display the correct step indicator:
-            fixStepIndicator(n)
-        }
-
+            // fixStepIndicator(n)
+        
         function nextPrev(n) {
             // This function will figure out which tab to display
             var x = document.getElementsByClassName("tab");
             // Exit the function if any field in the current tab is invalid:
-            if (n == 1 && !validateForm()) return false;
+            // if (n == 1 && !validateForm()) return false;
             // Hide the current tab:
             x[currentTab].style.display = "none";
             // Increase or decrease the current tab by 1:
@@ -454,53 +450,53 @@ if ($_SESSION['status'] != "login") {
             // if you have reached the end of the form...
             if (currentTab >= x.length) {
                 // ... the form gets submitted:
-                document.getElementById("inputModal").submit("nextBtn");
+                document.getElementById("inputModal").submit();
                 return false;
             }
             // Otherwise, display the correct tab:
             showTab(currentTab);
         }
-
-        function validateForm() {
-            // This function deals with validation of the form fields
-            var x, y, i, m,n, valid = true;
-            x = document.getElementsByClassName("tab");
-            y = x[currentTab].getElementsByTagName("input");
-            m =x[currentTab].getElementsByTagName("textarea");
-            n=x[currentTab].getElementsByTagName("select");
-            // A loop that checks every input field in the current tab:
-            for (i = 0; i < y.length; i++) {
-                // If a field is empty...
-                if (y[i].value == "") {
-                    // add an "invalid" class to the field:
-                    y[i].className += " invalid";
-                    // and set the current valid status to false
-                    valid = false;
-                }
-            }
-            // If the valid status is true, mark the step as finished and valid:
-            if (valid) {
-                document.getElementsByClassName("step")[currentTab].className += " finish";
-            }
-            return valid; // return the valid status
-        }
+        // function validateForm() {
+        //    var className ="";
+        //     // This function deals with validation of the form fields
+        //     var x, y, i, m,n, valid = true;
+        //     x = document.getElementsByClassName("tab");
+        //     y = x[currentTab].getElementsByTagName("input");
+        //     m =x[currentTab].getElementsByTagName("textarea");
+        //     n=x[currentTab].getElementsByTagName("select");
+        //     // A loop that checks every input field in the current tab:
+        //     for (i = 0; i < y.length; i++) {
+        //         // If a field is empty...
+        //         if (y[i].value == "") {
+        //             // add an "invalid" class to the field:
+        //             y[i].className += " invalid";
+        //             // and set the current valid status to false
+        //             valid = false;
+        //         }
+        //     }
+        //     // If the valid status is true, mark the step as finished and valid:
+        //     if (valid) {
+        //         document.getElementsByClassName("step")[currentTab].className += " finish";
+        //     }
+        //     return valid; // return the valid status
+        // }
         
 
-        function fixStepIndicator(n) {
-            // This function removes the "active" class of all steps...
-            var i, x = document.getElementsByClassName("step");
-            for (i = 0; i < x.length; i++) {
-                x[i].className = x[i].className.replace(" active", "");
-            }
-            //... and adds the "active" class on the current step:
-            x[n].className += " active";
-        }
+        // function fixStepIndicator(n) {
+        //     // This function removes the "active" class of all steps...
+        //     var i, x = document.getElementsByClassName("step");
+        //     for (i = 0; i < x.length; i++) {
+        //         x[i].className = x[i].className.replace(" active", "");
+        //     }
+        //     //... and adds the "active" class on the current step:
+        //     x[n].className += " active";
+        // }
 
-        function SendData(){
-            jQuery("submit").click(
-                alert("test")
-            )
-        }
+        // function SendData(){
+        //     jQuery("#submit").click(
+        //         alert("sakdfjlkasfdj")
+        //     )
+        // }
         // $(document).ready(function() {
         //     ('#datepicker').datepicker();
 
@@ -529,15 +525,15 @@ if ($_SESSION['status'] != "login") {
     <script src="../js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="./vendor/chart.js/Chart.min.js"></script>
+    <!-- <script src="./vendor/chart.js/Chart.min.js"></script> -->
 
     <!-- Page level plugins -->
     <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="../js/demo/chart-area-demo.js"></script>
-    <script src="../js/demo/chart-pie-demo.js"></script>
+    <!-- <script src="../js/demo/chart-area-demo.js"></script>
+    <script src="../js/demo/chart-pie-demo.js"></script> -->
     <script src="../js/ajax.js"></script>
 
     <!-- Page level custom scripts -->
